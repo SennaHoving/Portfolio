@@ -85,8 +85,33 @@ p {
 }
 
 nav {
-    position: absolute;
-    top: 0px;
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    width: fit-content;
+}
+
+nav summary {
+  background-color: var(--color-primary);
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+nav summary {
+    list-style: none;
+}
+
+details summary span {
+  display: block;
+  height: 2px;
+  width: 20px;
+  background-color: var(--color-secondary);
 }
 
 section {
