@@ -274,7 +274,7 @@ section:nth-of-type(3) img {
     background-color: var(--color-grey-light);
     height: 240px;
     width: 100%;
-    margin: 3em 0 4em 0;
+    margin-top: 3em;
 }
 
 .project section:first-of-type div p {
@@ -296,4 +296,33 @@ article img {
     background-color: var(--color-grey-light);
     height: 240px;
     width: 100%;
+}
+
+article div {
+    display: flex;
+    flex-direction: column; 
+    gap: 0.8em;
+}
+
+article div h2 {
+    font-size: var(--font-size-tekst);
+    margin-top: 3em; 
+}
+
+article div p {
+    margin-bottom: 0.5em;
+}
+
+.project section:last-of-type {
+    display: block;
+}
+
+.project section:last-of-type h2 {
+    font-size: var(--font-size-tekst);
+}
+
+.project section:last-of-type h3 {
+    font-size: 3em;
+    font-weight: var(--font-weight-header);
+    margin: 0.1em 0 0.4em 0;
 }
