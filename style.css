@@ -251,7 +251,6 @@ section:nth-of-type(3) img {
 /* Detail pagina projecten */ 
 .project header {
     position: absolute;
-    display: none; /* later weghalen */
 }
 
 .project section:first-of-type {
