@@ -325,3 +325,9 @@ article div p {
     font-weight: var(--font-weight-header);
     margin: 0.1em 0 0.4em 0;
 }
+
+.project section:last-of-type img {
+    background-color: var(--color-grey-light);
+    height: 240px;
+    width: 100%;
+}
