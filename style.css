@@ -96,7 +96,7 @@ nav {
 }
 
 nav summary {
-  background-color: var(--color-primary);
+  background-color: var(--color-accent);
   height: 3em;
   width: 3em;
   border-radius: 50%;
@@ -115,7 +115,7 @@ details summary span {
   display: block;
   height: 2px;
   width: 16px;
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   border-radius: 1px;
 }
 
@@ -177,6 +177,18 @@ footer > p {
     grid-row-start: 5;
     grid-row-end: 6;
     opacity: 50%;
+}
+
+/* intersection observer */
+.load, .loadText {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s, transform 1s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* home page */
