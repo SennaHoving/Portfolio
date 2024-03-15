@@ -93,6 +93,7 @@ nav {
     position: fixed;
     top: 1em;
     right: 1em;
+    z-index: 2;
 }
 
 nav summary {
@@ -120,7 +121,7 @@ details summary span {
 }
 
 section {
-    margin: 1.5em var(--margin-side) 7.5em var(--margin-side);
+    margin: 1.5em var(--margin-side) 5.5em var(--margin-side);
 }
 
 footer {
@@ -180,7 +181,7 @@ footer > p {
 }
 
 /* intersection observer */
-.load, .loadText {
+.load {
     opacity: 0;
     transform: translateY(100px);
     transition: opacity 1s, transform 1s;
@@ -211,10 +212,6 @@ section:nth-of-type(2) {
 
 section:nth-of-type(2) div {
     margin-bottom: 2em;
-}
-
-section:nth-of-type(2) div:last-of-type {
-    margin-bottom: 0;
 }
 
 section:nth-of-type(2) h2 {
