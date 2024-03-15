@@ -1,3 +1,10 @@
+let navButton = document.querySelector('nav button');
+let navMenu = document.querySelector('nav div');
+
+navButton.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+});
+
 let options = {
     root: null, 
     rootMargin: "0px",
