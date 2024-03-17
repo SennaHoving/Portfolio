@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* http://meyerweb.com/eric/tools/css/reset/ - v2.0 | 20110126 - License: none (public domain) */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* custom properties */
+:root {
+    --color-secondary: #000000;
+    --color-primary: #ffffff;
+    --color-grey-light: #c1c1c1;
+    --color-accent: #1d1d1d;
+
+    --font-size-header: 64px; 
+    --font-size-title: 20px; 
+    --font-size-tekst: 16px; 
+    /* nog aanpassen naar em */
+
+    --font-weight-header: 300;
+    --font-weight-tekst: 500;
+
+    --margin-side: 1em;
+
+    --font-line-height-tekst: 1.4em;
+}
+
+/* styling general*/
+* {
+    font-family: 'Noto Sans';
+}
+
+header div.video {
+    height: 600px;
+    background-color: var(--color-accent);
+}
+
+h2 {
+    color: var(--color-secondary);
+    font-size: var(--font-size-header);
+    font-weight: var(--font-weight-header);
+}
+
+p {
+    color: var(--color-secondary);
+    font-size: var(--font-size-tekst);
+    font-weight: var(--font-weight-tekst);
+    line-height: var(--font-line-height-tekst);
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+nav {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+    height: 2em;
+    z-index: 3;
+}
+
+nav button {
+    background-color: var(--color-accent);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5em;
+    position: relative;
+}
+
+nav button p {
+    color: var(--color-primary);
+    font-size: 14px;
+}
+
+nav div {
+    height: 2em;
+    display: flex;
+    gap: 0.5em;
+    visibility: hidden;
+}
+
+nav div a {
+    background-color: var(--color-accent);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5em;
+    font-size: 14px;
+    color: var(--color-primary);
+    position: relative;
+    transform: translateX(100vw);
+    opacity: 0;
+}
+
+header nav > a {
+    background-color: var(--color-accent);
+    padding: 0.5em 1em;
+    color: var(--color-primary);
+    border-radius: 4em;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    z-index: 4;
+    visibility: visible;
+}
+
+nav.open button {
+    padding: 0.5em 0;
+}
+
+nav.open button p {
+    visibility: hidden;
+}
+
+nav.open button span {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    height: 2px;
+    width: 16px;
+    background-color: var(--color-primary);
+    border-radius: 1px;
+}
+
+nav.open button span:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+  
+nav.open button span:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+nav.open div {
+    visibility: visible;
+    display: flex;
+}
+
+nav.open div a {
+    position: relative;
+    transform: translateX(0);
+    transition: all 1s;
+    opacity: 1;
+}
+
+header nav.open > a {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+    z-index: 2;
+}
+
+section {
+    margin: 1.5em var(--margin-side) 5.5em var(--margin-side);
+}
+
+footer {
+    margin: 1.5em var(--margin-side) 1.5em var(--margin-side);
+    display: grid;
+    gap: 2em;
+    grid-template-rows: auto auto auto auto auto; 
+}
+
+footer div:first-of-type {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+footer div:first-of-type p {
+    margin: 1em 0;
+}
+
+footer div:first-of-type button {
+    width: 100%;
+    margin: 1em 0 3em 0;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 3em;
+    position: relative;
+    overflow: hidden;
+}
+
+footer div:first-of-type button p {
+    position: relative;
+    color: var(--color-primary);
+    font-size: 1.5em;
+    font-weight: var(--font-weight-header);
+    z-index: 2;
+}
+
+footer div:first-of-type button span {
+    position: absolute;
+    background-color: #4C2688;
+    width: 110%;
+    height: 300%;
+    left: -5%;
+    border-radius: 50%;
+    visibility: hidden;
+    transform: translateY(20%);
+    z-index: 1;
+}
+
+footer div:first-of-type button:hover span {
+    visibility: visible;
+    transition: all 1s;
+    transition-timing-function: ease-out;
+    transform: translateY(-60%);
+}
+
+footer div:nth-of-type(2) {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+footer div:nth-of-type(3) {
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+footer div:nth-of-type(4) {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    display: flex;
+    flex-direction: column;
+}
+
+footer div:nth-of-type(4) a {
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+footer > p {
+    grid-row-start: 5;
+    grid-row-end: 6;
+    opacity: 50%;
+}
+
+/* intersection observer */
+.load {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.5s, transform 1s;
+    transition-timing-function: ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* home page */
+section:first-of-type h1 {
+    color: var(--color-secondary);
+    font-size: var(--font-size-header);
+    font-weight: var(--font-weight-header);
+    padding: 0.5em 0;
+}
+
+section:first-of-type p {
+    padding: 1em 0;
+}
+
+section:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+section:nth-of-type(2) div {
+    margin-bottom: 2em;
+}
+
+section:nth-of-type(2) h2 {
+    padding: 0.4em 0;
+}
+
+section:nth-of-type(2) img {
+    background-color: var(--color-grey-light);
+    width: 100%;
+    pointer-events: none;
+}
+
+section:nth-of-type(2) h3 {
+    color: var(--color-secondary);
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-tekst);
+    margin-top: 1em;
+}
+
+section:nth-of-type(2) p {
+    color: var(--color-secondary);
+    font-size: var(--font-size-tekst);
+    font-weight: var(--font-weight-tekst);
+    opacity: 50%;
+    margin-top: 0.3em;
+}
+
+section:nth-of-type(3) {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+section:nth-of-type(3) h2 {
+    padding: 0.2em 0;
+}
+
+section:nth-of-type(3) img {
+    background-color: var(--color-grey-light);
+    width: 100%;
+    height: 280px;
+    pointer-events: none;
+}
+
+/* Detail pagina projecten */ 
+.project header {
+    position: absolute;
+}
+
+.project section:first-of-type {
+    padding: 8em var(--margin-side) 1.5em var(--margin-side);
+    margin: 0;
+}
+
+.project section:first-of-type div {
+    display: flex;
+    gap: 0.4em;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.project section:first-of-type div:first-of-type {
+    margin-top: 1em;
+}
+
+.project div:first-of-type img {
+    background-color: var(--color-grey-light);
+    height: 240px;
+    width: 100%;
+    margin-top: 3em;
+    object-fit: cover;
+}
+
+.project section:first-of-type div p {
+    padding: 0;
+}
+
+.project section:first-of-type div p:last-of-type {
+    opacity: 50%;
+}
+
+article {
+    margin: 1.5em var(--margin-side) 7.5em var(--margin-side);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em; 
+}
+
+article img {
+    background-color: var(--color-grey-light);
+    width: 100%;
+}
+
+article div {
+    display: flex;
+    flex-direction: column; 
+    gap: 0.8em;
+}
+
+article div h2 {
+    font-size: var(--font-size-tekst);
+    margin-top: 3em; 
+}
+
+article div p {
+    margin-bottom: 0.5em;
+}
+
+.project section:last-of-type {
+    display: block;
+    padding: 7.5em var(--margin-side) 7.5em var(--margin-side);
+}
+
+.project section:last-of-type h2 {
+    font-size: var(--font-size-tekst);
+}
+
+.project section:last-of-type h3 {
+    font-size: 3em;
+    font-weight: var(--font-weight-header);
+    margin: 0.1em 0 0.4em 0;
+}
+
+.project section:last-of-type img {
+    background-color: var(--color-grey-light);
+    height: 240px;
+    width: 100%;
+}
