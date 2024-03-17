@@ -60,6 +60,8 @@ table {
     --font-weight-tekst: 500;
 
     --margin-side: 1em;
+
+    --font-line-height-tekst: 1.4em;
 }
 
 /* styling general*/
@@ -67,7 +69,7 @@ table {
     font-family: 'Noto Sans';
 }
 
-header div {
+header div.video {
     height: 600px;
     background-color: var(--color-accent);
 }
@@ -82,6 +84,7 @@ p {
     color: var(--color-secondary);
     font-size: var(--font-size-tekst);
     font-weight: var(--font-weight-tekst);
+    line-height: var(--font-line-height-tekst);
 }
 
 a {
@@ -90,63 +93,105 @@ a {
 }
 
 nav {
-    position: relative;
+    position: fixed;
+    top: 1em;
+    right: 1em;
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    align-items: center;
+    gap: 0.5em;
+    height: 2em;
+    z-index: 3;
 }
 
 nav button {
-    position: fixed;
-    height: 4em;
-    width: 4em;
-    border-radius: 50%;
-    padding: 0;
     background-color: var(--color-accent);
     border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.4em;
-    top: 1em;
-    right: 1em;
-    z-index: 2;
+    padding: 0.5em 1em;
+    border-radius: 5em;
+    position: relative;
 }
 
-nav button span {
+nav button p {
+    color: var(--color-primary);
+    font-size: 14px;
+}
+
+nav div {
+    height: 2em;
+    display: flex;
+    gap: 0.5em;
+    visibility: hidden;
+}
+
+nav div a {
+    background-color: var(--color-accent);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5em;
+    font-size: 14px;
+    color: var(--color-primary);
+    position: relative;
+    transform: translateX(100vw);
+    opacity: 0;
+}
+
+header nav > a {
+    background-color: var(--color-accent);
+    padding: 0.5em 1em;
+    color: var(--color-primary);
+    border-radius: 4em;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    z-index: 4;
+    visibility: visible;
+}
+
+nav.open button {
+    padding: 0.5em 0;
+}
+
+nav.open button p {
+    visibility: hidden;
+}
+
+nav.open button span {
+    position: absolute;
     display: block;
+    top: 50%;
+    left: 50%;
     height: 2px;
     width: 16px;
     background-color: var(--color-primary);
     border-radius: 1px;
 }
 
-nav div {
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--color-accent);
-    position: fixed;
-    top: 0;
-    z-index: 2;
-    transform: translateX(100%);
-    transition: 1s transform;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    align-items: start;
+nav.open button span:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+  
+nav.open button span:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-nav div a {
-    color: var(--color-primary);
-    font-size: 4em;
-    font-weight: var(--font-weight-header);
-}
-
-nav div.open {
+nav.open div {
     visibility: visible;
+    display: flex;
+}
+
+nav.open div a {
+    position: relative;
     transform: translateX(0);
-    transition: 1s transform;
+    transition: all 1s;
+    opacity: 1;
+}
+
+header nav.open > a {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+    z-index: 2;
 }
 
 section {
@@ -170,15 +215,40 @@ footer div:first-of-type p {
 }
 
 footer div:first-of-type button {
-    color: var(--color-primary);
-    font-size: 1.5em;
-    font-weight: var(--font-weight-header);
     width: 100%;
-    padding: 0.4em;
     margin: 1em 0 3em 0;
     background-color: var(--color-accent);
     border: none;
-    border-radius: 2em;
+    border-radius: 3em;
+    position: relative;
+    overflow: hidden;
+}
+
+footer div:first-of-type button p {
+    position: relative;
+    color: var(--color-primary);
+    font-size: 1.5em;
+    font-weight: var(--font-weight-header);
+    z-index: 2;
+}
+
+footer div:first-of-type button span {
+    position: absolute;
+    background-color: #4C2688;
+    width: 110%;
+    height: 300%;
+    left: -5%;
+    border-radius: 50%;
+    visibility: hidden;
+    transform: translateY(20%);
+    z-index: 1;
+}
+
+footer div:first-of-type button:hover span {
+    visibility: visible;
+    transition: all 1s;
+    transition-timing-function: ease-out;
+    transform: translateY(-60%);
 }
 
 footer div:nth-of-type(2) {
@@ -251,7 +321,6 @@ section:nth-of-type(2) h2 {
 section:nth-of-type(2) img {
     background-color: var(--color-grey-light);
     width: 100%;
-    height: 240px;
     pointer-events: none;
 }
 
@@ -313,6 +382,7 @@ section:nth-of-type(3) img {
     height: 240px;
     width: 100%;
     margin-top: 3em;
+    object-fit: cover;
 }
 
 .project section:first-of-type div p {
@@ -332,7 +402,6 @@ article {
 
 article img {
     background-color: var(--color-grey-light);
-    height: 240px;
     width: 100%;
 }
 
@@ -353,6 +422,7 @@ article div p {
 
 .project section:last-of-type {
     display: block;
+    padding: 7.5em var(--margin-side) 7.5em var(--margin-side);
 }
 
 .project section:last-of-type h2 {

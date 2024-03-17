@@ -1,9 +1,17 @@
 let navButton = document.querySelector('nav button');
-let navMenu = document.querySelector('nav div');
+let nav = document.querySelector('nav');
+let navA = document.querySelectorAll('nav div a');
 
 navButton.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
+    nav.classList.toggle('open');
+    navButton.classList.toggle('open');
 });
+
+navA.forEach(navA => {
+        navA.addEventListener('click', () => {
+        nav.classList.remove('open');
+    });
+})
 
 let options = {
     root: null, 
