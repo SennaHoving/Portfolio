@@ -1,6 +1,7 @@
 let navButton = document.querySelector('nav button');
 let nav = document.querySelector('nav');
 let navA = document.querySelectorAll('nav div a');
+let navHome = document.querySelector('header nav > a');
 
 navButton.addEventListener('click', () => {
     nav.classList.toggle('open');
@@ -13,6 +14,16 @@ navA.forEach(navA => {
     });
 })
 
+// navHome 
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 0) {
+        navHome.classList.add('hidden');
+    } else {
+        navHome.classList.remove('hidden');
+    }
+});
+
+// intersectionObserver
 let options = {
     root: null, 
     rootMargin: "0px",
@@ -29,3 +40,22 @@ const observer = new IntersectionObserver (entries =>  {
 
 const hiddenElements = document.querySelectorAll(".load");
 hiddenElements.forEach(hiddenElement => observer.observe(hiddenElement));
+
+// sliderHome
+let slideIndex = 0;
+
+function showSlides() {
+    let slides = document.querySelectorAll('.slides img');
+    for (let i = 0; i < slides.length; i++) {
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        } else {
+            slides[i].style.display = "none";  
+        }
+    }
+    slideIndex++;
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 3000);
+}
+
+showSlides();
