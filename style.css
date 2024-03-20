@@ -462,6 +462,18 @@ section:nth-of-type(3) div img {
     opacity: 50%;
 }
 
+.project section:first-of-type div:last-of-type p {
+    opacity: 1;
+}
+
+.project section:first-of-type div:last-of-type a {
+    padding: 1em;
+    border-radius: 5em;
+    color: var(--color-primary);
+    background-color: var(--color-accent);
+    max-width: 25em;
+}
+
 article {
     margin: 1.5em var(--margin-side) 7.5em var(--margin-side);
     display: flex;
@@ -556,7 +568,7 @@ article div p {
 
       footer > div:first-of-type button {
         width: 65%;
-      }
+    }
 }
 
 @media (min-width: 1000px) {
