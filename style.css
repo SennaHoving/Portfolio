@@ -253,6 +253,10 @@ section {
     margin: 1.5em var(--margin-side) 5.5em var(--margin-side);
 }
 
+body section:first-of-type {
+    margin: 3.5em var(--margin-side) 8.5em var(--margin-side);
+}
+
 footer {
     margin: 1.5em var(--margin-side) 1.5em var(--margin-side);
     display: grid;
@@ -298,7 +302,7 @@ footer > div:first-of-type button p {
 
 footer > div:first-of-type button span {
     position: absolute;
-    background-color: #4C2688;
+    background-color: var(--color-grey-light);
     width: 110%;
     height: 300%;
     left: -5%;
@@ -417,6 +421,9 @@ section:nth-of-type(3) h2 {
 
 section:nth-of-type(3) div {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 section:nth-of-type(3) div img {
@@ -434,6 +441,7 @@ section:nth-of-type(3) div img {
 .project section:first-of-type {
     padding: 8em var(--margin-side) 1.5em var(--margin-side);
     margin: 0;
+    position: relative;
 }
 
 .project section:first-of-type div {
@@ -460,18 +468,18 @@ section:nth-of-type(3) div img {
 
 .project section:first-of-type div p:last-of-type {
     opacity: 50%;
-}
+  }
 
-.project section:first-of-type div:last-of-type p {
-    opacity: 1;
-}
-
-.project section:first-of-type div:last-of-type a {
+.project section:first-of-type > a {
+    aspect-ratio: 1/1;
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--color-grey-light);
     padding: 1em;
-    border-radius: 5em;
-    color: var(--color-primary);
-    background-color: var(--color-accent);
-    max-width: 25em;
+    display: flex;
+    align-items: center;
+    bottom: 7em;
+    right: 2em;;
 }
 
 article {
@@ -501,11 +509,6 @@ article div p {
     margin-bottom: 0.5em;
 }
 
-.project section:last-of-type {
-    display: block;
-    padding: 7.5em var(--margin-side) 7.5em var(--margin-side);
-}
-
 .project section:last-of-type h2 {
     font-size: var(--font-size-tekst);
 }
@@ -525,7 +528,7 @@ article div p {
     section:first-of-type p {
         max-width: 70%;
         padding: 0 0 1em 0;
-      }
+    }
 
       section:nth-of-type(2) > div {
         display: grid;
@@ -540,6 +543,11 @@ article div p {
       section:nth-of-type(2) h3 {
         font-size: calc(1.2 * var(--font-size-title));
       }
+
+    .project section:first-of-type > a {
+        right: 3em;
+        bottom: auto;
+    }
 
       section:nth-of-type(3) {
         display: grid;
@@ -581,6 +589,11 @@ article div p {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1em;
+    }
+
+    .project section:first-of-type > a {
+        right: 3em;
+        padding: 1.5em;
     }
 
     section:nth-of-type(3) {
@@ -639,8 +652,20 @@ article div p {
 }
 
 @media (min-width: 1560px) {
+    header nav > a {
+        left: 9em;
+    }
+
+    nav button {
+        margin-right: var(--margin-side-wide);
+    }
+
     section {
         margin: 1.5em var(--margin-side-wide) 11em var(--margin-side-wide);
+    }
+
+    body section:first-of-type {
+        margin: 3.5em var(--margin-side-wide) 8.5em var(--margin-side-wide);
     }
 
     section:first-of-type h1 {
@@ -654,6 +679,12 @@ article div p {
 
     section:nth-of-type(2) h2 {
         font-size: calc(1.2 * var(--font-size-header));
+    }
+
+    .project section:first-of-type > a {
+        right: 4em;
+        padding: 3em;
+        transform: translateY(40%);
     }
 
     section:nth-of-type(3) {
