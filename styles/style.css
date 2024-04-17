@@ -166,6 +166,10 @@ nav.open button {
     color: var(--color-primary);
 }
 
+nav.open {
+    background-color: inherit;
+}
+
 nav > div {
     position: absolute;
     height: 100vh;
@@ -177,6 +181,7 @@ nav > div {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
+    right: 0;
 }
 
 nav.open > div {
@@ -222,7 +227,7 @@ section:first-of-type {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    background-color: var(--color-primary);
+    background-color: var(--color-background);
 }
 
 section:first-of-type h1 {
@@ -329,6 +334,7 @@ footer > p {
 /* detail page */ 
 .project section:first-of-type {
     padding: calc(2 * var(--margin-vertical)) var(--margin-side);
+    background-color: var(--color-primary);
 }
 
 .project section:first-of-type h1 {
@@ -415,12 +421,100 @@ footer > p {
     margin-bottom: 0.25em;
 }
 
-@media (min-width: 760px) {
+@media (min-width: 450px) {
+    nav > div {
+        width: 70vw;
+    }
+}
 
+@media (min-width: 760px) {
+    section:first-of-type h1 span {
+        font-size: calc(0.9 * var(--font-size-header));
+    }
+
+    nav > div {
+        width: 45vw;
+    }
+
+    section:nth-of-type(2) > div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 2em;
+        grid-column-gap: 1em;
+    }
+
+    section:nth-of-type(3) {
+        display: grid;
+        grid-template: auto auto / 1fr 1fr;
+        gap: 2em;
+    }
+
+    section:nth-of-type(3) h2 {
+        grid-area: 1 / 1 / 2 / 1;
+    }
+
+    section:nth-of-type(3) div:first-of-type {
+        grid-area: 2 / 1 / 3 / 1;
+    }
+
+    section:nth-of-type(3) div:last-of-type {
+        grid-area: 2 / 2 / 3 / 3;
+    }
 }
 
 @media (min-width: 1000px) {
+    section:first-of-type h1 {
+        font-size: 3em;
+    }
 
+    section:first-of-type h1 span {
+        font-size: calc(0.8 * var(--font-size-header));
+    }
+
+    section:first-of-type p {
+        width: 70%;
+    }
+
+    nav > div {
+        width: 35vw;
+    }
+
+    section:nth-of-type(2) > div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1em;
+    }
+
+    .project article div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 2em var(--margin-side);
+    }
+
+    .project article div:first-of-type, .project article div:nth-of-type(3), .project article div:last-of-type {
+        padding: calc(0.5 * var(--margin-vertical)) var(--margin-side);
+    }
+
+    .project .imgGal {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .project article div img {
+        max-width: 49%;
+    }
+
+    .project section:last-of-type a img {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1400px) {
+    nav > div {
+        width: 25vw;
+    }
 }
 
 @media (min-width: 1800px) {
@@ -440,33 +534,17 @@ footer > p {
         width: 50%;
     }
 
-    section:nth-of-type(2) {
-        padding: var(--margin-vertical-wide) var(--margin-side-wide);
-        gap: 4em;
-    }
-
-    section:nth-of-type(2) > div {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1em;
+    nav > div {
+        width: 20vw;
     }
 
     section:nth-of-type(3) {
-        display: grid;
-        grid-template: auto auto / 1fr 1fr;
         gap: 4em;
     }
 
-    section:nth-of-type(3) h2 {
-        grid-area: 1 / 1 / 2 / 1;
-    }
-
-    section:nth-of-type(3) div:first-of-type {
-        grid-area: 2 / 1 / 3 / 1;
-    }
-
-    section:nth-of-type(3) div:last-of-type {
-        grid-area: 2 / 2 / 3 / 3;
+    section:nth-of-type(2) {
+        padding: var(--margin-vertical-wide) var(--margin-side-wide);
+        gap: 4em;
     }
 
     footer {
@@ -482,6 +560,10 @@ footer > p {
         margin: 0.5em 0;
     }
 
+    .project article div:first-of-type, .project article div:nth-of-type(3), .project article div:last-of-type {
+        padding: calc(0.5 * var(--margin-vertical-wide)) var(--margin-side-wide);
+    }
+
     .project section:first-of-type {
         padding: var(--margin-vertical-wide) var(--margin-side-wide);
     }
@@ -492,30 +574,5 @@ footer > p {
 
     .project section:first-of-type p {
         font-size: calc(1.2 * var(--font-size-tekst));
-    }
-
-    .project article div {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        padding: 2em var(--margin-side-wide);
-    }
-
-    .project article div:first-of-type, .project article div:nth-of-type(3), .project article div:last-of-type {
-        padding: calc(0.5 * var(--margin-vertical-wide)) var(--margin-side-wide);
-    }
-
-    .project .imgGal {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-    }
-
-    .project article div img {
-        max-width: 49%;
-    }
-
-    .project section:last-of-type a img {
-        width: 50%;
     }
 }
