@@ -365,8 +365,8 @@ footer > p {
 /* home page */
 section:first-of-type h1 {
     color: var(--color-secondary);
-    font-size: var(--font-size-header);
-    font-weight: var(--font-weight-header);
+    font-size: 0.7em;
+    font-weight: 100;
     padding: 0.5em 0;
 }
 
@@ -389,7 +389,7 @@ section:nth-of-type(2) h2 {
 }
 
 section:nth-of-type(2) img {
-    background-color: var(--color-grey-light);
+    background-color: var(--color-primary);
     width: 100%;
     pointer-events: none;
 }
@@ -427,7 +427,7 @@ section:nth-of-type(3) div {
 }
 
 section:nth-of-type(3) div img {
-    background-color: var(--color-grey-light);
+    background-color: var(--color-primary);
     width: 100%;
     pointer-events: none;
     transform: scale(2);
@@ -439,7 +439,7 @@ section:nth-of-type(3) div img {
 }
 
 .project section:first-of-type {
-    padding: 8em var(--margin-side) 1.5em var(--margin-side);
+    padding: 8em var(--margin-side) 4.5em var(--margin-side);
     margin: 0;
     position: relative;
 }
@@ -456,7 +456,7 @@ section:nth-of-type(3) div img {
 }
 
 .project div:first-of-type img {
-    background-color: var(--color-grey-light);
+    background-color: var(--color-primary);
     width: 100%;
     margin-top: 3em;
     object-fit: cover;
@@ -478,7 +478,7 @@ section:nth-of-type(3) div img {
     padding: 1em;
     display: flex;
     align-items: center;
-    bottom: 7em;
+    bottom: 10em;
     right: 2em;;
 }
 
@@ -520,7 +520,7 @@ article div p {
 }
 
 .project section:last-of-type img {
-    background-color: var(--color-grey-light);
+    background-color: var(--color-primary);
     width: 100%;
 }
 
@@ -547,6 +547,7 @@ article div p {
     .project section:first-of-type > a {
         right: 3em;
         bottom: auto;
+        transform: translateY(40%);
     }
 
       section:nth-of-type(3) {
@@ -672,9 +673,15 @@ article div p {
         font-size: calc(2 * var(--font-size-header));
     }
 
+    section:first-of-type h1 span {
+        font-weight: 100;
+        font-size: 1.5em;
+    }
+
     section:first-of-type p {
         max-width: 100%;
-        font-size: calc(1.8 * var(--font-size-tekst));
+        font-size: calc(var(--font-size-tekst));
+        width: 50%;
     }
 
     section:nth-of-type(2) h2 {
@@ -724,13 +731,16 @@ article div p {
     article .imgGal {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(100px, auto);
     }
-
+    
     article .imgGal img {
-        height: 100%;
         width: 100%;
+        height: 100%;
         object-fit: cover;
+        aspect-ratio: 1/1;
     }
+    
 
     .project section:last-of-type {
         padding: 7.5em 60em 7.5em var(--margin-side-wide);

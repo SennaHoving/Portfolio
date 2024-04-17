@@ -1,11 +1,15 @@
-let navButton = document.querySelector('nav button');
+let navButton = document.querySelector('nav button:nth-of-type(2)');
 let nav = document.querySelector('nav');
-let navA = document.querySelectorAll('nav div a');
-let navHome = document.querySelector('header nav > a');
+let navA = document.querySelectorAll('nav a');
 
 navButton.addEventListener('click', () => {
     nav.classList.toggle('open');
     navButton.classList.toggle('open');
+    if (navButton.textContent === 'Menu') {
+        navButton.textContent = "Close";
+    } else {
+        navButton.textContent = "Menu";
+    }
 });
 
 navA.forEach(navA => {
@@ -15,13 +19,13 @@ navA.forEach(navA => {
 })
 
 // navHome 
-window.addEventListener('scroll', function() {
-    if (window.scrollY > 0) {
-        navHome.classList.add('hidden');
-    } else {
-        navHome.classList.remove('hidden');
-    }
-});
+// window.addEventListener('scroll', function() {
+//     if (window.scrollY > 500) {
+//         nav.classList.add('clear');
+//     } else {
+//         nav.classList.remove('clear');
+//     }
+// });
 
 // intersectionObserver
 let options = {
