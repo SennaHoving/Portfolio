@@ -121,22 +121,22 @@ header nav {
     z-index: 5;
     width: 100%;
     justify-content: space-between;
-    background-color: var(--color-primary);
+    background-color: inherit;
+    transition: 1s;
 }
 
 nav button {
     border: none;
     background-color: initial;
     padding: 0;
-    margin: 0.5em;
+    margin: 0.5em 1em;
     z-index: 10;
-    color: var(--color-secondary);
+    color: var(--color-primary);
     font-size: 1.2em;
 }
 
 nav button a {
-    color: var(--color-secondary);
-    transition: 0.5s;
+    color: var(--color-primary);
 }
 
 nav button a:hover {
@@ -144,30 +144,31 @@ nav button a:hover {
     transition: 1s;
 }
 
-nav.clear {
+nav.fill {
     background-color: var(--color-primary);
     transition: 1s;
     visibility: visible;
 }
 
-nav.clear button {
+nav.hidden {
+    transform: translateY(-100%);
+    transition: 1s;
+}
+
+nav.fill button {
     color: var(--color-secondary);
 }
 
-nav.clear button a {
+nav.fill button a {
     color: var(--color-secondary);
 }
 
-nav.clear button a:hover {
+nav.fill button a:hover {
     color: var(--color-accent);
 }
 
 nav.open button {
     color: var(--color-primary);
-}
-
-nav.open {
-    background-color: inherit;
 }
 
 nav > div {

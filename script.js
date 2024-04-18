@@ -1,6 +1,7 @@
 let navButton = document.querySelector('nav button:nth-of-type(2)');
 let nav = document.querySelector('nav');
 let navA = document.querySelectorAll('nav a');
+let slides = document.querySelectorAll('.slides img');
 
 navButton.addEventListener('click', () => {
     nav.classList.toggle('open');
@@ -12,20 +13,37 @@ navButton.addEventListener('click', () => {
     }
 });
 
+// Nav button 
 navA.forEach(navA => {
         navA.addEventListener('click', () => {
         nav.classList.remove('open');
     });
 })
 
-// navHome 
-// window.addEventListener('scroll', function() {
-//     if (window.scrollY > 500) {
-//         nav.classList.add('clear');
-//     } else {
-//         nav.classList.remove('clear');
-//     }
-// });
+// Nav color
+window.addEventListener('scroll', function() {
+    if (window.scrollY > ((window.innerHeight * 0.7) - 45)) {
+        nav.classList.add('fill');
+    } else {
+        nav.classList.remove('fill');
+    }
+});
+
+// Nav scrolling up
+let lastScroll = 0
+
+window.addEventListener('scroll', function() {
+    let scroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scroll > lastScroll) {
+        nav.classList.add('hidden');
+      } else {
+        nav.classList.remove('hidden');
+      }
+
+      lastScroll = scroll;
+})
+
 
 // intersectionObserver
 let options = {
@@ -34,7 +52,7 @@ let options = {
     threshold: 0
 }
 
-const observer = new IntersectionObserver (entries =>  {
+let observer = new IntersectionObserver (entries =>  {
     entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("show");
@@ -42,14 +60,13 @@ const observer = new IntersectionObserver (entries =>  {
         })
 }, options);
 
-const hiddenElements = document.querySelectorAll(".load");
+let hiddenElements = document.querySelectorAll(".load");
 hiddenElements.forEach(hiddenElement => observer.observe(hiddenElement));
 
 // sliderHome
 let slideIndex = 0;
 
 function showSlides() {
-    let slides = document.querySelectorAll('.slides img');
     for (let i = 0; i < slides.length; i++) {
         if (slideIndex > slides.length) {
             slideIndex = 1
